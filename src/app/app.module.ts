@@ -16,6 +16,7 @@ import { MatPaginatorModule} from '@angular/material/paginator'
 import { MatFormFieldModule} from '@angular/material/form-field'
 import { MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LandingPageComponent,
     ToolbarComponent,
     CrudComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule
 
   ],
   providers: [],
