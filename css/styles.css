@@ -1,0 +1,102 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.cta button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    margin-left: 0%;
+    border: 0%;
+    justify-content: space-around;
+    color: #fff;
+}
+
+.footer-links a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 24px;
+}
+
+.social-icons a i {
+    transition: transform 0.2s ease-in-out;
+}
+
+.social-icons a:hover i {
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-links {
+        margin-bottom: 20px;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.img-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.description-box {
+    flex: 1;
+    margin-left: 50px;
+}
+
+.description-box h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.description-box p {
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: justify;
+}
