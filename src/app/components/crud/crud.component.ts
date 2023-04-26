@@ -1,43 +1,53 @@
-import { Component } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { Film } from 'src/app/models/film.model';
+import { MatDialog } from '@angular/material/dialog';
+import { CineService } from 'src/app/services/cine.service';
+import { AddFilmDialogComponent } from '../add-film-dialog/add-film-dialog.component'; // Nuevo componente para agregar película
+import { EditFilmDialogComponent } from '../edit-film-dialog/edit-film-dialog.component';
 
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html',
   styleUrls: ['./crud.component.css']
 })
-export class CrudComponent {
+export class CrudComponent implements OnInit{
 
   displayedColumns: string[] = ['id', 'name', 'photo', 'duration', 'genero','actions'];
-  dataSource: Film[];
+  dataSource: Film[]=[];
 
-  constructor() {
-    // Aquí creas tu arreglo de películas y lo asignas a dataSource
-    this.dataSource = [
-      {
-        id: 1,
-        name: 'The Shawshank Redemption',
-        photo: 'https://miro.medium.com/v2/resize:fit:1024/1*ZuyHle2wBnM1MY0xkIa9hA.jpeg',
-        duration: '2h 22min',
-        genero: 'Drama'
-      },
-      {
-        id: 2,
-        name: 'The Godfather',
-        photo: 'https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg',
-        duration: '2h 55min',
-        genero: 'Crime, Drama'
-      },
-      {
-        id: 3,
-        name: 'The Dark Knight',
-        photo: 'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg',
-        duration: '2h 32min',
-        genero: 'Action, Crime, Drama'
-      },
-      //...
-    ];
+  constructor(
+    private dialog:MatDialog,
+    private filmService:CineService
+    ) {}
+
+    ngOnInit(): void {
+      this.dataSource=this.filmService.get_films()
+    }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddFilmDialogComponent, {
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      result.id= this.dataSource.length + 1;
+      this.filmService.add_film(result);
+      const updatedDataSource = this.filmService.get_films();
+      this.dataSource = [...updatedDataSource];
+    });
   }
+
+  openDialogEdit(film: Film):void{
+    const dialogRef = this.dialog.open(EditFilmDialogComponent, {
+      data: film
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      this.filmService.update_film(result)
+      const updatedDataSource = this.filmService.get_films();
+      Object.assign(this.dataSource, updatedDataSource)
+      console.log(result)
+    });
+  }
+
+
 
 
 

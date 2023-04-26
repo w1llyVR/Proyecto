@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Add Film</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Name" [value]="film.name" >
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Photo URL" [value]="film.photo" >
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Duration" [value]="film.duration" >
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Genre" [value]="film.genero">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="film" cdkFocusInitial>Save</button>
+</mat-dialog-actions>

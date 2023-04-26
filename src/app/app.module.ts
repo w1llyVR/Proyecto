@@ -16,7 +16,10 @@ import { MatPaginatorModule} from '@angular/material/paginator'
 import { MatFormFieldModule} from '@angular/material/form-field'
 import { MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog'
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddFilmDialogComponent } from './components/add-film-dialog/add-film-dialog.component'
+import { FormsModule } from '@angular/forms';
+import { EditFilmDialogComponent } from './components/edit-film-dialog/edit-film-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import {MatDialogModule} from '@angular/material/dialog'
     ToolbarComponent,
     CrudComponent,
     FooterComponent,
+    AddFilmDialogComponent,
+    EditFilmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import {MatDialogModule} from '@angular/material/dialog'
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
 
   ],
   providers: [],
