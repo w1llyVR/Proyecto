@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'proyecto-footer',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  constructor(private router:Router)
+  {
+    
+  }
+
+  home(){
+    this.router.navigateByUrl('/home');
+  }
+  peliculas(){
+    this.router.navigateByUrl('business/peliculas')
+  }
 }

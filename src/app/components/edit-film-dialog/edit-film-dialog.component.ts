@@ -9,10 +9,14 @@ import { Film } from 'src/app/models/film.model';
 })
 export class EditFilmDialogComponent {
 
+  film: Film;
+
   constructor(
     public dialogRef: MatDialogRef<EditFilmDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public film: Film,
-  ) { }
+    @Inject(MAT_DIALOG_DATA) public data: Film,
+  ) {
+      this.film = {...data};
+   }
 
 
   onNoClick(): void {
@@ -22,7 +26,7 @@ export class EditFilmDialogComponent {
   onSave(): void {
     // Aquí puedes hacer lo que necesites con la información del formulario
     // En este ejemplo, simplemente cerramos el dialog
-    this.dialogRef.close();
+    this.dialogRef.close(this.film);
   }
 
 

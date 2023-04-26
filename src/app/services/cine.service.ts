@@ -30,8 +30,7 @@ export class CineService {
         photo: 'https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg',
         duration: '2h 32min',
         genero: 'Action, Crime, Drama'
-      },
-      //...
+      }
     ];
   }
 
@@ -46,8 +45,22 @@ export class CineService {
 
   update_film(film:Film){
       const index = this.dataSource.findIndex(e => e.id === film.id);
-      this.dataSource[index]= {...film};
+      //this.dataSource[index]= film;
+      //console.log('film ', film)
+      this.dataSource.splice(index,1,film);
+   }
+   delete_film(film:Film)
+   {
+      const index = this.dataSource.findIndex(e => e.id === film.id);
+      console.log('index',index)
+      this.dataSource.splice(index, 1);
+   }
 
+   get_film(film:Film)
+   {
+    const founded = this.dataSource.find(e => e == film);
+    return founded 
+    //return this.dataSource[index];
    }
 
 
